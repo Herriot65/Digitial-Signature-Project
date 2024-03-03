@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask,render_template
 from models.user import User
 from config import ConfigClass
 from extensions import mail,login_manager,db
 from flask_migrate import Migrate
+
 
 ## @brief Create the Flask application instance.
 app=Flask(__name__)
@@ -23,9 +24,10 @@ db.init_app(app)
 ## @brief Database migration.
 migrate=Migrate(app,db)
 
+from apps.routes import user
+
 @app.route('/')
 def home():
-    return "<h1>Welcome to the home page</h1>"
+    return render_template('index.html')
 
-if __name__=='__main__':
-    app.run()
+app.register_blueprint(user)

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Signature Platform</title>
+</head>
+<body>
+    <header>
+        <h1>Digital Signature Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Welcome to Our Digital Signature Platform</h2>
+            <p>Sign documents securely and efficiently with our platform.</p>
+            <a href="{{ url_for('user.register') }}" class="btn">Sign Up</a>
+            <a href="{{ url_for('user.login') }}" class="btn">Log In</a>
+        </section>
+
+        <section class="features">
+            <h2>Key Features</h2>
+            <ul>
+                <li>Securely sign documents online</li>
+                <li>Efficient document management</li>
+                <li>Access documents from anywhere</li>
+            </ul>
+        </section>
+
+        <section class="testimonial">
+            <h2>What Our Users Say</h2>
+            <blockquote>
+                "I love how easy it is to sign documents with this platform. Highly recommended!"
+                <cite>John Doe</cite>
+            </blockquote>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Digital Signature Platform. All rights reserved.</p>
+
+        <nav>
+            <ul>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>

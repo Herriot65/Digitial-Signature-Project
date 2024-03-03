@@ -13,6 +13,6 @@ class ConfigClass:
     MAIL_PORT=465
     MAIL_USE_SSL=True 
     MAIL_USE_TLS=False 
-    MAIL_USERNAME='yourmail@gmail.com'
-    MAIL_PASSWORD='yourapplicationpassword'
+    MAIL_USERNAME='herriotdagoudi@gmail.com'
+    MAIL_PASSWORD='arzr gkpm nbuj fnzt'
     MAIL_DEBUG=False

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Welcome to your Dashboard!</h1>
+    <p>Here's some information about your account:</p>
+    <ul>
+        <li>Username: {{ current_user.username }}</li>
+        <li>Email: {{ current_user.email }}</li>
+    </ul>
+
+    <a href="{{ url_for('user.logout') }}">Logout</a>
+{% endblock %}
