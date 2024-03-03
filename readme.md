@@ -48,5 +48,4 @@ For more information and support, please refer to the documentation or contact o
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
-By [Your Name] - [Your Email] - [Your Organization]
+
