@@ -5,7 +5,7 @@ import os
 
 ## @brief Configuration of the mysql database and parameters for sending email.
 class ConfigClass:
-    SQLALCHEMY_DATABASE_URI='mysql://root:0000@localhost/digital_signature_database'
+    SQLALCHEMY_DATABASE_URI='mysql://user:yourmp@localhost/database_name'
     SECRET_KEY=os.environ.get('SECRET_KEY') or 'password'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
 
@@ -13,6 +13,7 @@ class ConfigClass:
     MAIL_PORT=465
     MAIL_USE_SSL=True 
     MAIL_USE_TLS=False 
-    MAIL_USERNAME='herriotdagoudi@gmail.com'
-    MAIL_PASSWORD='arzr gkpm nbuj fnzt'
+    MAIL_USERNAME='yourmail@gmail.com'
+    MAIL_PASSWORD='yourappspassword'
     MAIL_DEBUG=False
+    

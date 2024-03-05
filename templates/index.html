@@ -1,58 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Signature Platform</title>
-</head>
-<body>
-    <header>
-        <h1>Digital Signature Platform</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+{% extends "base.html" %}
 
-    <main>
-        <section class="hero">
-            <h2>Welcome to Our Digital Signature Platform</h2>
-            <p>Sign documents securely and efficiently with our platform.</p>
-            <a href="{{ url_for('user.register') }}" class="btn">Sign Up</a>
-            <a href="{{ url_for('user.login') }}" class="btn">Log In</a>
-        </section>
+{% block title %}Welcome to Flask Blog{% endblock %}
 
-        <section class="features">
-            <h2>Key Features</h2>
-            <ul>
-                <li>Securely sign documents online</li>
-                <li>Efficient document management</li>
-                <li>Access documents from anywhere</li>
-            </ul>
-        </section>
+{% block content %}
+<section>
+    <h2>Welcome to Flask Blog</h2>
+    <p>Flask Blog is a platform for sharing ideas, insights, and experiences. Whether you're a seasoned writer or just starting out, our platform provides you with the tools you need to create and share engaging content with the world.</p>
+    
+    <h3>Explore Our Features:</h3>
+    <ul>
+        <li>Create and publish blog posts on topics that matter to you.</li>
+        <li>Engage with other users by leaving comments and joining discussions.</li>
+        <li>Discover new perspectives and insights from our diverse community of writers.</li>
+    </ul>
 
-        <section class="testimonial">
-            <h2>What Our Users Say</h2>
-            <blockquote>
-                "I love how easy it is to sign documents with this platform. Highly recommended!"
-                <cite>John Doe</cite>
-            </blockquote>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Digital Signature Platform. All rights reserved.</p>
-
-        <nav>
-            <ul>
-                <li><a href="#">Terms of Service</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-    </footer>
-</body>
-</html>
+    <h3>Get Started Today:</h3>
+    <p>Ready to start sharing your thoughts with the world? Sign up for an account and begin your blogging journey with Flask Blog today!</p>
+</section>
+{% endblock %}

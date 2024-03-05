@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Email Confirmation{% endblock %}
+
+{% block content %}
+    <h1>Email Confirmation</h1>
+    <div>
+        {% if confirmed %}
+            <p>Your email has been successfully confirmed.</p>
+        {% else %}
+            <p>Invalid or expired confirmation link.</p>
+        {% endif %}
+        <p>Return to <a href="{{ url_for('login') }}">Login Page</a></p>
+    </div>
+{% endblock %}
