@@ -1,5 +1,7 @@
 from flask import Flask,render_template
 from models.user import User
+from models.post import Post
+from models.category import Category
 from config import ConfigClass
 from extensions import mail,login_manager,db
 from flask_migrate import Migrate

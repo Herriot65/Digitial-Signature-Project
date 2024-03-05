@@ -19,9 +19,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hashed = db.Column(db.String(100), unique=True, nullable=False)
     confirmed = db.Column(db.Boolean, default=False)
-    created_at=db.Column(db.Date,nullable=False,default=datetime.now())
-    private_key = db.Column(db.Text)  
-    public_key = db.Column(db.Text)   
+    created_at=db.Column(db.Date,nullable=False,default=datetime.now())   
 
     # __repr__ method
     def __repr__(self):
