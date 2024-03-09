@@ -11,11 +11,8 @@ from flask_mail import Message
 from flask_login import login_user,logout_user,current_user,login_required
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, flash
-from .forms import *
+from forms.forms import *
 from config import ConfigClass
-from cryptography.fernet import Fernet
-import os
-import rsa
 
 user=Blueprint('user', __name__, url_prefix='/user')
 
@@ -44,7 +41,6 @@ def register():
         password = form.password.data
 
         if not user_email_exist(email):
-            
             password_hashed=bcrypt.generate_password_hash(password)
             new_user=User(username=username,email=email,password_hashed=password_hashed,created_at=datetime.now())
             db.session.add(new_user)

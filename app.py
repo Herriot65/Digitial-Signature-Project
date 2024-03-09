@@ -1,7 +1,6 @@
 from flask import Flask,render_template
 from models.user import User
 from models.post import Post
-from models.category import Category
 from config import ConfigClass
 from extensions import mail,login_manager,db
 from flask_migrate import Migrate
@@ -27,9 +26,11 @@ db.init_app(app)
 migrate=Migrate(app,db)
 
 from apps.routes import user
+from apps.posts.routes import post
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
 app.register_blueprint(user)
+app.register_blueprint(post)

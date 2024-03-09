@@ -15,6 +15,7 @@
     </ul>
 
     <h3>Get Started Today:</h3>
-    <p>Ready to start sharing your thoughts with the world? Sign up for an account and begin your blogging journey with Flask Blog today!</p>
+    <p>Ready to start sharing your thoughts with the world? <a href="{{url_for('user.register')}}">Sign up</a> for an account or 
+        <a href="{{url_for('user.login')}}">Log in</a> and begin your blogging journey with Flask Blog today!</p>
 </section>
 {% endblock %}

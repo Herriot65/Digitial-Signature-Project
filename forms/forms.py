@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField,TextAreaField
-from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
+from wtforms.validators import DataRequired, Email, EqualTo, ValidationError,Length
 from models.user import User  
 from flask_wtf.file import FileField, FileRequired
 
@@ -19,12 +19,10 @@ class ResendEmailConfirmationForm(FlaskForm):
     email = StringField('Email', validators=[Email(), DataRequired()])
     submit = SubmitField('Resend Confirmation Email')
 
-class UploadDocumentForm(FlaskForm):
-    file = FileField('Document', validators=[FileRequired()])
-    submit = SubmitField('Upload')
-
-class SendDocumentForm(FlaskForm):
-    recipient_email = StringField('Recipient Email', validators=[DataRequired(), Email()])
-    objet = StringField('Subject', validators=[DataRequired()])
-    instructions = TextAreaField('Instructions', validators=[DataRequired()])
-    submit = SubmitField('Send Document')
+class CreatePostForm(FlaskForm):
+    title = StringField('title', validators=[DataRequired(), Length(max=100)])
+    content = TextAreaField('content', validators=[DataRequired()])
+    
+class EditPostForm(FlaskForm):
+    title = StringField('title', validators=[DataRequired()])
+    content = TextAreaField('content', validators=[DataRequired()])
