@@ -16,7 +16,6 @@
     {% endwith %}
     
     <form method="post">
-        {{ form.csrf_token }}
         <div class="form-group">
             {{ form.email.label(class="form-label") }}
             {{ form.email(class="form-control") }}

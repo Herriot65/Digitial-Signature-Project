@@ -12,10 +12,9 @@ post=Blueprint('posts',__name__,url_prefix='/post')
 @login_required
 @post.route('/create_post', methods=['GET', 'POST'])
 def create_post():
-    form=CreatePostForm()
-    if form.validate_on_submit():
-        title=form.title.data
-        content=form.content.data
+    if request.method=='POST':
+        title=request.form.get('title')
+        content=request.form.get('content')
         author_id=current_user.id
         
         while True:
@@ -28,7 +27,7 @@ def create_post():
         db.session.commit()
         flash("Your post has been successfully created")
         return redirect(url_for('posts.list_posts'))
-    return render_template('create_post.html',form=form)
+    return render_template('posts/create_post.html')
 
 @post.route('/posts')
 @login_required
@@ -36,24 +35,22 @@ def list_posts():
     posts = Post.query.all()  
     if not posts:
         flash("You have not made any posts yet.")
-    return render_template('posts_list.html', posts=posts)
+    return render_template('posts/posts_list.html', posts=posts)
 
 @login_required
 @post.route('/posts/<string:post_token>/edit', methods=['GET', 'POST'])
 def edit_post(post_token):
-    form = EditPostForm()
     post = Post.query.filter_by(token=post_token).first()
-    
     if post:
-        if form.validate_on_submit():
-            post.title = form.title.data
-            post.content = form.content.data
+        if request.method=='POST':
+            post.title = request.form.get('title')
+            post.content = request.form.get('content')
             db.session.commit()
             return redirect(url_for('posts.list_posts'))
         else:
             flash('Post not found')
     
-    return render_template('edit_post.html', form=form,post=post)
+    return render_template('posts/edit_post.html',post=post)
 
 
 @login_required
@@ -82,7 +79,7 @@ def confirm_post_deletion(post_token):
         db.session.commit()
         return redirect(url_for('posts.list_posts'))
 
-    return render_template('delete_post.html', post=post)
+    return render_template('posts/delete_post.html', post=post)
 
     
 

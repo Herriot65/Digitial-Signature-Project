@@ -34,11 +34,10 @@ def user_email_exist(email):
 
 @user.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        username = form.username.data
-        email = form.email.data
-        password = form.password.data
+    if request.method=='POST':
+        username = request.form.get('username')
+        email = request.form.get('email')
+        password = request.form.get('oassword')
 
         if not user_email_exist(email):
             password_hashed=bcrypt.generate_password_hash(password)
@@ -58,7 +57,7 @@ def register():
             return redirect(url_for('user.login'))
         else:
             flash('Email already registered,Please change.')
-    return render_template('register.html', form=form)
+    return render_template('users/register.html')
 
 
 @user.route('/confirm/<token>')
@@ -71,10 +70,8 @@ def confirm_email(token):
 
 @user.route('/resend_email_confirmation_link', methods=['GET', 'POST'])
 def resend_email_confirmation_link():
-    form = ResendEmailConfirmationForm()
-    
-    if form.validate_on_submit():
-        email = form.email.data
+    if request.method=='POST':
+        email = request.form.get('email')
         user=User.query.filter_by(email=email).first()
         if user:
             confirmation_token = generate_confirmed_token(email)
@@ -90,14 +87,13 @@ def resend_email_confirmation_link():
         else:
             flash('No user found with the provided email address.')
 
-    return render_template('resend_confirmation_email.html', form=form)
+    return render_template('users/resend_confirmation_email.html')
 
 @user.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        email = form.email.data
-        password = form.password.data
+    if request.method=='POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
         
         user = User.query.filter_by(email=email).first()
 
@@ -109,12 +105,12 @@ def login():
         else:
             flash('Invalid email or password.')
 
-    return render_template('login.html', form=form)
+    return render_template('users/login.html')
 
 @user.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('users/dashboard.html')
 
 @user.route('/logout', methods=['GET'])
 @login_required

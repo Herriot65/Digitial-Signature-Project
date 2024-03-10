@@ -18,17 +18,16 @@
         {% endwith %}
         <!-- Login form -->
         <form method="POST" action="{{ url_for('user.login') }}">
-            {{ form.hidden_tag() }}
             <div class="form-group">
-                {{ form.email.label(class="form-label") }}
-                {{ form.email(class="form-control") }}
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control">
             </div>
             <div class="form-group">
-                {{ form.password.label(class="form-label") }}
-                {{ form.password(class="form-control") }}
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control">
             </div>
             <div class="form-group">
-                {{ form.submit(class="btn btn-primary") }}
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
             <p>Don't have an account? <a href="{{ url_for('user.register') }}">Sign up here</a></p>
         </form>
