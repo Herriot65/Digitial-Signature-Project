@@ -5,7 +5,7 @@ import os
 
 ## @brief Configuration of the mysql database and parameters for sending email.
 class ConfigClass:
-    SQLALCHEMY_DATABASE_URI='mysql://root:0000@localhost/blog_database'
+    SQLALCHEMY_DATABASE_URI='mysql://root:password@localhost/database_name'
     SECRET_KEY=os.environ.get('SECRET_KEY') or 'password'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
 
@@ -13,7 +13,7 @@ class ConfigClass:
     MAIL_PORT=465
     MAIL_USE_SSL=True 
     MAIL_USE_TLS=False 
-    MAIL_USERNAME='herriotdagoudi@gmail.com'
-    MAIL_PASSWORD='arzr gkpm nbuj fnzt'
+    MAIL_USERNAME='yourmail@gmail.com'
+    MAIL_PASSWORD='app password'
     MAIL_DEBUG=False
     
