@@ -7,8 +7,5 @@
         <li>Username: {{ current_user.username }}</li>
         <li>Email: {{ current_user.email }}</li>
     </ul>
-
-    <a href="{{url_for('posts.create_post')}}">Create_post</a>
-    <a href="{{url_for('posts.list_posts')}}">See list post</a>
-    <a href="{{ url_for('user.logout') }}">Logout</a>
+   
 {% endblock %}

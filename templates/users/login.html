@@ -1,36 +1,30 @@
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
+{% block styling %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form_users_style.css') }}">
+{% endblock %}
 
 {% block content %}
-<main>
-    <section class="login">
-        <h2>Login to Your Account</h2>
-        <!-- Flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                <div class="alert alert-danger" role="alert">
-                    {% for message in messages %}
-                        {{ message }}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endwith %}
-        <!-- Login form -->
-        <form method="POST" action="{{ url_for('user.login') }}">
-            <div class="form-group">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" id="email" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" name="password" class="form-control">
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary">Login</button>
-            </div>
-            <p>Don't have an account? <a href="{{ url_for('user.register') }}">Sign up here</a></p>
-        </form>
-    </section>
-</main>
+<div class="form-wrap">
+  <form class="form" method="post" action="{{ url_for('user.login') }}">
+    <h1 class="form__title">Log In</h1>
+
+    <div class="form__group">
+      <input type="text" id="email" name="email" class="form__input" placeholder=" " autocomplete="on" required>
+      <label for="email" class="form__label">Email</label>
+    </div>
+
+    <div class="form__group">
+      <input type="password" id="password" name="password" class="form__input" placeholder=" " required>
+      <label for="password" class="form__label">Password</label>
+    </div>
+
+    <div class="form__checkbox">
+      <input type="checkbox" id="remember_me" name="remember_me">
+      <label for="remember_me">Remember me</label>
+    </div>
+
+    <button type="submit" class="form__button">Login</button>
+  </form>
+</div>
 {% endblock %}

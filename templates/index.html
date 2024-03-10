@@ -1,21 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Welcome to Flask Blog{% endblock %}
+{% block styling %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/index_style.css') }}">
+{% endblock %}
 
 {% block content %}
-<section>
-    <h2>Welcome to Flask Blog</h2>
-    <p>Flask Blog is a platform for sharing ideas, insights, and experiences. Whether you're a seasoned writer or just starting out, our platform provides you with the tools you need to create and share engaging content with the world.</p>
-    
-    <h3>Explore Our Features:</h3>
-    <ul>
-        <li>Create and publish blog posts on topics that matter to you.</li>
-        <li>Engage with other users by leaving comments and joining discussions.</li>
-        <li>Discover new perspectives and insights from our diverse community of writers.</li>
-    </ul>
-
-    <h3>Get Started Today:</h3>
-    <p>Ready to start sharing your thoughts with the world? <a href="{{url_for('user.register')}}">Sign up</a> for an account or 
-        <a href="{{url_for('user.login')}}">Log in</a> and begin your blogging journey with Flask Blog today!</p>
-</section>
+<div class="container">
+    <header class="content-text">
+        <h1>Welcome to the <strong>Flask Blog</strong></h1>
+        <p>Flask Blog is a platform for sharing ideas, insights, and experiences. Whether you're a seasoned writer or just starting out, our platform provides you with the tools you need to create and share engaging content with the world.</p>
+        <p><em>Need an account? </em><a href="{{ url_for('user.register') }}">Register!</a></p>
+        <p><em>Existing user? </em><a href="{{ url_for('user.login') }}">Login!</a></p>
+    </header>
+    <figure class="content-image">
+        <img src="{{ url_for('static', filename='img/flask.png') }}" alt="Flask Logo">
+    </figure>
+</div>
 {% endblock %}

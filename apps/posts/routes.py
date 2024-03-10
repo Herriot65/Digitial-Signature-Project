@@ -2,7 +2,6 @@ from flask import Blueprint,request,render_template, redirect,flash,url_for
 from models.user import User
 from models.post import Post
 from datetime import datetime
-from forms.forms import CreatePostForm,EditPostForm
 from flask_login import login_required,current_user
 import secrets
 from extensions import db

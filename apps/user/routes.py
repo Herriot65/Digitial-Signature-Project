@@ -11,7 +11,6 @@ from flask_mail import Message
 from flask_login import login_user,logout_user,current_user,login_required
 from functools import wraps
 from flask import Flask, render_template, request, redirect, url_for, flash
-from forms.forms import *
 from config import ConfigClass
 
 user=Blueprint('user', __name__, url_prefix='/user')

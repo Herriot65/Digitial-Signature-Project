@@ -1,30 +1,30 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% block title %}User Registration{% endblock %}
+{% block styling %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/form_users_style.css') }}">
+{% endblock %}
 
 {% block content %}
-    <h1>User Registration</h1>
-    
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            <div class="alert alert-danger" role="alert">
-                {% for message in messages %}
-                    {{ message }}
-                {% endfor %}
-            </div>
-        {% endif %}
-    {% endwith %}
-    
-    <form action="{{ url_for('user.register') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        
-        <button type="submit">Register</button>
-    </form>
+<div class="form-wrap">
+  <form class="form" method="post">
+    <h1 class="form__title">User Registration</h1>
+
+    <div class="form__group">
+      <input type="text" id="username" name="username" class="form__input" placeholder=" " autocomplete="on" required>
+      <label for="username" class="form__label">Username</label>
+    </div>
+
+    <div class="form__group">
+      <input type="text" id="email" name="email" class="form__input" placeholder=" " autocomplete="on" required>
+      <label for="email" class="form__label">Email</label>
+    </div>
+
+    <div class="form__group">
+      <input type="password" id="password" name="password" class="form__input" placeholder=" " required>
+      <label for="password" class="form__label">Password</label>
+    </div>
+
+    <button type="submit" class="form__button">Register</button>
+  </form>
+</div>
 {% endblock %}

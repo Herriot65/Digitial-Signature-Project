@@ -6,17 +6,6 @@
     <div class="col">
       <div class="card mt-4">
         <div class="card-body">
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              <div class="alert alert-info" role="alert">
-                <ul>
-                  {% for message in messages %}
-                    <li>{{ message }}</li>
-                  {% endfor %}
-                </ul>
-              </div>
-            {% endif %}
-          {% endwith %}
           <a class="btn btn-success" href="{{ url_for('posts.create_post') }}">Add Post</a>
           {% for post in posts %}
           <div class="card mt-3">
@@ -33,6 +22,9 @@
             </div>
             <div class="card-body">
                 {{ post.content }} 
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Created at: {{ post.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
               </div>
           </div>
           {% endfor %}
