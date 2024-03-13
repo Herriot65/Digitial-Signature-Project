@@ -1,10 +1,10 @@
-from flask import Blueprint,request,render_template, redirect,flash,url_for
+import secrets
+from extensions import db
 from models.user import User
 from models.post import Post
 from datetime import datetime
 from flask_login import login_required,current_user
-import secrets
-from extensions import db
+from flask import Blueprint,request,render_template, redirect,flash,url_for
 
 post=Blueprint('posts',__name__,url_prefix='/post')
 

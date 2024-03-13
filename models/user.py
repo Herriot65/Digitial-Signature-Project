@@ -4,14 +4,20 @@ from extensions import db
 
 class User(db.Model, UserMixin):
     """
-    :class: `User` represents a user in the system
-    :param id: The user's unique ID.
-    :param username: The username of the user.
-    :param email: The email address of the user.
-    :param password_hashed: Hashed password of the user.
-    :param confirmed: (optional) Whether the user's email is confirmed.
-    :param create_at: (optional) The date of user creation.
+    Define the User model for database representation of users.
 
+    This class represents the User model in the database, defining its structure and attributes.
+
+    Attributes:
+        id (int): The primary key of the user.
+        username (str): The username of the user, limited to 64 characters.
+        email (str): The email address of the user, unique and limited to 100 characters.
+        password_hashed (str): The hashed password of the user, stored securely.
+        confirmed (bool): Flag indicating whether the user's email address is confirmed.
+        created_at (datetime): The timestamp indicating the creation date of the user.
+
+    Methods:
+        __repr__: Returns a string representation of the user object.
     """
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
@@ -21,7 +27,6 @@ class User(db.Model, UserMixin):
     confirmed = db.Column(db.Boolean, default=False)
     created_at=db.Column(db.Date,nullable=False,default=datetime.now())   
 
-    # __repr__ method
     def __repr__(self):
         return '<User %s>' % self.username
 

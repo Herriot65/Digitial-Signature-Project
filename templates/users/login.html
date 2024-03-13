@@ -25,6 +25,8 @@
     </div>
 
     <button type="submit" class="form__button">Login</button>
+    
+    <a href="{{ url_for('user.resend_email_confirmation_link') }}" class="resend-link">Resend confirmation email</a>
   </form>
 </div>
 {% endblock %}
