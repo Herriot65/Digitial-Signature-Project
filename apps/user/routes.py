@@ -1,3 +1,4 @@
+from functools import wraps
 from models.user import User
 from datetime import datetime
 from config import ConfigClass
@@ -20,12 +21,18 @@ login_manager.init_app(user)
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+def login_required(view_func):
+    @wraps(view_func)
+    def wrapper(*args, **kwargs):
+        if current_user.is_authenticated:
+            return view_func(*args, **kwargs)
+        else:
+            return redirect(url_for('login'))
+    return wrapper
+
 def user_email_exist(email):
-    user=User.query.filter_by(email=email).first()
-    if user :
-        return True
-    else:
-        return False
+    user = User.query.filter_by(email=email).first()
+    return user is not None
     
 def control_user_submit(username,email,password):
     if not username:

@@ -10,14 +10,14 @@ class ConfigClass:
     MAIL_USE_SSL=True 
     MAIL_USE_TLS=False 
     MAIL_USERNAME='yourmail@gmail.com'
-    MAIL_PASSWORD='app password'
+    MAIL_PASSWORD='password'
     MAIL_DEBUG=False
     
 class DevelopmentConfig(ConfigClass):
     # Development configuration settings
-    SQLALCHEMY_DATABASE_URI='mysql://root:password@localhost/database_name'
+    SQLALCHEMY_DATABASE_URI='mysql://root:0000@localhost/blog_database'
 
 class TestingConfig(ConfigClass):
     # Testing configuration settings
-    SQLALCHEMY_DATABASE_URI = 'sqlite://'  # Using SQLite for testing
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'  
     SQLALCHEMY_TRACK_MODIFICATIONS=False
